@@ -26,36 +26,6 @@ const Schedule = () => {
     }
   ];
 
-  const weeklyActivities = [
-    {
-      day: "Lunedì",
-      activities: ["Libera scalata", "Allenamento"]
-    },
-    {
-      day: "Martedì", 
-      activities: ["Libera scalata", "Sessioni guidate"]
-    },
-    {
-      day: "Mercoledì",
-      activities: ["Libera scalata", "Attività bambini"]
-    },
-    {
-      day: "Giovedì",
-      activities: ["Libera scalata", "Allenamento avanzato"]
-    },
-    {
-      day: "Venerdì",
-      activities: ["Serata Sociale", "Libera scalata"]
-    },
-    {
-      day: "Sabato",
-      activities: ["Libera scalata", "Gare interne", "Attività di gruppo"]
-    },
-    {
-      day: "Domenica",
-      activities: ["Famiglia", "Libera scalata"]
-    }
-  ];
 
   return (
     <section className="py-20 bg-muted/30">
@@ -99,30 +69,6 @@ const Schedule = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4 mb-12">
-          <div className="md:col-span-2 lg:col-span-4 xl:col-span-7 mb-6">
-            <h3 className="text-2xl font-bold text-primary text-center">Attività Settimanali</h3>
-          </div>
-          {weeklyActivities.map((day, index) => (
-            <Card key={index} className="shadow-card-custom hover:shadow-climbing transition-all duration-300 border-border">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg text-center text-primary font-bold">
-                  {day.day}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="space-y-2">
-                  {day.activities.map((activity, actIndex) => (
-                    <div key={actIndex} className="text-xs px-2 py-1 bg-secondary rounded-full text-secondary-foreground">
-                      {activity}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="shadow-card-custom border-primary/20">
             <CardHeader>
@@ -137,12 +83,16 @@ const Schedule = () => {
                 <p className="text-muted-foreground">Arrampica in totale libertà sui nostri percorsi di diversa difficoltà.</p>
               </div>
               <div className="border-l-4 border-energy pl-4">
-                <h4 className="font-semibold text-lg text-foreground">Sessioni Guidate</h4>
-                <p className="text-muted-foreground">Sessioni con accompagnatori esperti per migliorare la tecnica.</p>
+                <h4 className="font-semibold text-lg text-foreground">Corsi di Arrampicata</h4>
+                <p className="text-muted-foreground">Corsi per tutti i livelli: base, intermedio e avanzato con istruttori qualificati.</p>
               </div>
               <div className="border-l-4 border-primary pl-4">
                 <h4 className="font-semibold text-lg text-foreground">Eventi Sociali</h4>
                 <p className="text-muted-foreground">Serate di arrampicata e competizioni interne per tutti i livelli.</p>
+              </div>
+              <div className="border-l-4 border-secondary pl-4">
+                <h4 className="font-semibold text-lg text-foreground">Sessioni Guidate</h4>
+                <p className="text-muted-foreground">Sessioni con accompagnatori esperti per migliorare la tecnica.</p>
               </div>
             </CardContent>
           </Card>
