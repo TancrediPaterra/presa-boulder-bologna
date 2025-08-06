@@ -115,7 +115,6 @@ const Schedule = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-base sm:text-lg text-foreground mb-1 sm:mb-2">Primo Accesso</h4>
-                <p className="text-sm sm:text-base text-muted-foreground">Prima volta? Ti offriamo una prova gratuita con istruttore!</p>
               </div>
             </CardContent>
           </Card>
