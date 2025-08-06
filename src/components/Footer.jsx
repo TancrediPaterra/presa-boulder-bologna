@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FooterContainer = styled.footer`
   background-color: var(--rock);
@@ -16,7 +16,7 @@ const FooterGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -78,7 +78,7 @@ const Link = styled.a`
   color: inherit;
   text-decoration: none;
   transition: color 0.3s ease;
-  
+
   &:hover {
     color: var(--energy);
   }
@@ -141,9 +141,7 @@ const Footer = () => {
               La palestra di arrampicata popolare di Bologna. Un luogo dove
               passione, inclusività e crescita si incontrano.
             </BrandDescription>
-            <Copyright>
-              © 2024 PresaB. Tutti i diritti riservati.
-            </Copyright>
+            <Copyright>© 2024 PresaB. Tutti i diritti riservati.</Copyright>
           </BrandSection>
 
           <LinksSection>

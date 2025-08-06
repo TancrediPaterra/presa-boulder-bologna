@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -31,7 +31,7 @@ const HomeLink = styled.a`
   color: var(--primary);
   text-decoration: underline;
   transition: color 0.3s ease;
-  
+
   &:hover {
     color: var(--accent);
   }

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Section = styled.section`
   padding: 5rem 0;
@@ -21,7 +21,7 @@ const Title = styled.h2`
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: var(--foreground);
-  
+
   @media (min-width: 768px) {
     font-size: 3rem;
   }
@@ -38,7 +38,7 @@ const ContentGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  
+
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -62,7 +62,7 @@ const CardTitle = styled.h3`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  color: ${props => props.color || 'var(--foreground)'};
+  color: ${(props) => props.color || "var(--foreground)"};
 `;
 
 const ContactContent = styled.div`
@@ -165,7 +165,7 @@ const SocialButton = styled.button`
   color: var(--foreground);
   transition: background-color 0.3s ease;
   cursor: pointer;
-  
+
   &:hover {
     background-color: var(--muted);
   }
@@ -200,7 +200,7 @@ const CTAButton = styled.button`
   font-size: 1.125rem;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  
+
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
@@ -221,16 +221,16 @@ const Contact = () => {
         <ContentGrid>
           <Card>
             <CardHeader>
-              <CardTitle color="var(--primary)">
-                📍 Dove Siamo
-              </CardTitle>
+              <CardTitle color="var(--primary)">📍 Dove Siamo</CardTitle>
             </CardHeader>
             <ContactContent>
               <ContactSection>
                 <ContactSectionTitle>Indirizzo</ContactSectionTitle>
                 <ContactText>
-                  Via dell'Arrampicata, 42<br />
-                  40100 Bologna, BO<br />
+                  Via dell'Arrampicata, 42
+                  <br />
+                  40100 Bologna, BO
+                  <br />
                   Italia
                 </ContactText>
               </ContactSection>
@@ -241,9 +241,7 @@ const Contact = () => {
                   <ContactListItem>
                     • Fermata metro: Stazione Centrale (15 min a piedi)
                   </ContactListItem>
-                  <ContactListItem>
-                    • Autobus: Linee 25, 30, 35
-                  </ContactListItem>
+                  <ContactListItem>• Autobus: Linee 25, 30, 35</ContactListItem>
                   <ContactListItem>
                     • Parcheggio gratuito disponibile
                   </ContactListItem>
@@ -265,9 +263,7 @@ const Contact = () => {
           <RightColumn>
             <ContactInfoCard>
               <CardHeader>
-                <CardTitle color="var(--accent)">
-                  📞 Contatti
-                </CardTitle>
+                <CardTitle color="var(--accent)">📞 Contatti</CardTitle>
               </CardHeader>
               <ContactInfoContent>
                 <ContactInfoItem>
@@ -295,15 +291,6 @@ const Contact = () => {
                 </SocialSection>
               </ContactInfoContent>
             </ContactInfoCard>
-
-            <CTACard>
-              <CTATitle>Pronto per la Prima Scalata?</CTATitle>
-              <CTADescription>
-                Prenota la tua prova gratuita e scopri il mondo dell'arrampicata
-                con noi!
-              </CTADescription>
-              <CTAButton>Prenota Ora</CTAButton>
-            </CTACard>
           </RightColumn>
         </ContentGrid>
       </Container>

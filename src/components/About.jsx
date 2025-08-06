@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Section = styled.section`
   padding: 5rem 0;
@@ -21,7 +21,7 @@ const Title = styled.h2`
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: var(--foreground);
-  
+
   @media (min-width: 768px) {
     font-size: 3rem;
   }
@@ -43,7 +43,7 @@ const FeaturesGrid = styled.div`
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 4rem;
-  
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -58,7 +58,7 @@ const FeatureCard = styled.div`
   border: 1px solid var(--border);
   transition: all 0.3s ease;
   transform: translateY(0);
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-climbing);

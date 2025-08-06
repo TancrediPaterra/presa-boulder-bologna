@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import heroImage from "@/assets/hero-climbing.jpg";
+import styled from "styled-components";
 
 const HeroContainer = styled.div`
   position: relative;
@@ -40,7 +40,7 @@ const ContentDiv = styled.div`
   max-width: 56rem;
   margin: 0 auto;
   padding: 0 1rem;
-  
+
   @media (min-width: 640px) {
     padding: 0 1.5rem;
   }
@@ -51,18 +51,19 @@ const Title = styled.h1`
   font-weight: bold;
   margin-bottom: 1rem;
   animation: float 3s ease-in-out infinite;
-  
+
   @media (min-width: 640px) {
     font-size: 3rem;
     margin-bottom: 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
     font-size: 4.5rem;
   }
-  
+
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -79,12 +80,12 @@ const Subtitle = styled.p`
   font-size: 1.125rem;
   margin-bottom: 0.75rem;
   color: rgba(255, 255, 255, 0.9);
-  
+
   @media (min-width: 640px) {
     font-size: 1.25rem;
     margin-bottom: 1rem;
   }
-  
+
   @media (min-width: 768px) {
     font-size: 1.5rem;
   }
@@ -98,12 +99,12 @@ const Description = styled.p`
   margin-left: auto;
   margin-right: auto;
   line-height: 1.625;
-  
+
   @media (min-width: 640px) {
     font-size: 1.125rem;
     margin-bottom: 2rem;
   }
-  
+
   @media (min-width: 768px) {
     font-size: 1.25rem;
   }
@@ -116,9 +117,10 @@ const ScrollIndicator = styled.div`
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.7);
   animation: bounce 1s infinite;
-  
+
   @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(-50%) translateY(-25%);
       animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }
@@ -145,7 +147,7 @@ const ScrollDot = styled.div`
   border-radius: 9999px;
   margin-top: 0.5rem;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  
+
   @keyframes pulse {
     50% {
       opacity: 0.5;
@@ -159,20 +161,18 @@ const Hero = () => {
       <BackgroundImageDiv>
         <Overlay />
       </BackgroundImageDiv>
-      
+
       <ContentDiv>
         <Title>
           Presa<EnergySpan>B</EnergySpan>
         </Title>
-        <Subtitle>
-          La Palestra di Arrampicata Popolare di Bologna
-        </Subtitle>
+        <Subtitle>La Palestra di Arrampicata Popolare di Bologna</Subtitle>
         <Description>
-          Scopri l'arrampicata in un ambiente accogliente e inclusivo. 
-          Per tutti i livelli, dalla prima volta agli esperti scalatori.
+          Scopri l'arrampicata in un ambiente accogliente e inclusivo. Per tutti
+          i livelli, dalla prima volta agli esperti scalatori.
         </Description>
       </ContentDiv>
-      
+
       <ScrollIndicator>
         <ScrollBox>
           <ScrollDot />

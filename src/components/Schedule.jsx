@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Section = styled.section`
   padding: 5rem 0;
@@ -21,7 +21,7 @@ const Title = styled.h2`
   font-weight: bold;
   margin-bottom: 1.5rem;
   color: var(--foreground);
-  
+
   @media (min-width: 768px) {
     font-size: 3rem;
   }
@@ -39,25 +39,27 @@ const ScheduleGrid = styled.div`
   grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-bottom: 3rem;
-  
+
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 const ScheduleCard = styled.div`
-  background-color: ${props => props.highlight ? 'rgba(255, 165, 0, 0.05)' : 'white'};
+  background-color: ${(props) =>
+    props.highlight ? "rgba(255, 165, 0, 0.05)" : "white"};
   border-radius: 0.5rem;
   box-shadow: var(--shadow-lg);
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: ${props => props.highlight ? '2px solid var(--energy)' : '1px solid var(--border)'};
-  
+  border: ${(props) =>
+    props.highlight ? "2px solid var(--energy)" : "1px solid var(--border)"};
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-climbing);
@@ -72,7 +74,7 @@ const ScheduleTitle = styled.h3`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: ${props => props.highlight ? 'var(--energy)' : 'var(--primary)'};
+  color: ${(props) => (props.highlight ? "var(--energy)" : "var(--primary)")};
 `;
 
 const ScheduleHours = styled.div`
@@ -100,7 +102,7 @@ const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  
+
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -111,7 +113,7 @@ const InfoCard = styled.div`
   border-radius: 0.5rem;
   box-shadow: var(--shadow-lg);
   padding: 1.5rem;
-  border: 1px solid ${props => props.borderColor || 'var(--border)'};
+  border: 1px solid ${(props) => props.borderColor || "var(--border)"};
 `;
 
 const InfoTitle = styled.h3`
@@ -120,7 +122,7 @@ const InfoTitle = styled.h3`
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
-  color: ${props => props.color || 'var(--foreground)'};
+  color: ${(props) => props.color || "var(--foreground)"};
 `;
 
 const InfoContent = styled.div`
@@ -130,7 +132,7 @@ const InfoContent = styled.div`
 `;
 
 const InfoItem = styled.div`
-  border-left: 4px solid ${props => props.borderColor};
+  border-left: 4px solid ${(props) => props.borderColor};
   padding-left: 1rem;
 `;
 
@@ -189,17 +191,13 @@ const Schedule = () => {
                 {schedule.period}
                 {schedule.highlight && "⭐"}
               </ScheduleTitle>
-              <ScheduleHours>
-                🕒 {schedule.hours}
-              </ScheduleHours>
+              <ScheduleHours>🕒 {schedule.hours}</ScheduleHours>
               {schedule.boulderClose && (
                 <ScheduleBoulderClose>
                   Sala Boulder chiude alle {schedule.boulderClose}
                 </ScheduleBoulderClose>
               )}
-              <ScheduleDescription>
-                {schedule.description}
-              </ScheduleDescription>
+              <ScheduleDescription>{schedule.description}</ScheduleDescription>
             </ScheduleCard>
           ))}
         </ScheduleGrid>
@@ -241,9 +239,7 @@ const Schedule = () => {
           </InfoCard>
 
           <InfoCard borderColor="var(--accent)">
-            <InfoTitle color="var(--accent)">
-              🕒 Informazioni Utili
-            </InfoTitle>
+            <InfoTitle color="var(--accent)">🕒 Informazioni Utili</InfoTitle>
             <InfoContent>
               <div>
                 <InfoItemTitle>Accesso</InfoItemTitle>
@@ -257,12 +253,6 @@ const Schedule = () => {
                 <InfoItemDescription>
                   Scarpette e imbrago disponibili a noleggio. Porta solo
                   abbigliamento comodo!
-                </InfoItemDescription>
-              </div>
-              <div>
-                <InfoItemTitle>Primo Accesso</InfoItemTitle>
-                <InfoItemDescription>
-                  Prima volta? Ti offriamo una prova gratuita con istruttore!
                 </InfoItemDescription>
               </div>
             </InfoContent>
