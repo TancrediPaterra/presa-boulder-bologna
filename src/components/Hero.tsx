@@ -18,14 +18,14 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-float">
+      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 animate-float">
           Presa<span className="text-energy">B</span>
         </h1>
-        <p className="text-xl md:text-2xl mb-4 text-white/90">
+        <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 text-white/90">
           La Palestra di Arrampicata Popolare di Bologna
         </p>
-        <p className="text-lg md:text-xl mb-8 text-white/80 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/80 max-w-2xl mx-auto leading-relaxed">
           Scopri l'arrampicata in un ambiente accogliente e inclusivo. 
           Per tutti i livelli, dalla prima volta agli esperti scalatori.
         </p>
