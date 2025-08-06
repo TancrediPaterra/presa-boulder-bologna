@@ -29,14 +29,6 @@ const Hero = () => {
           Scopri l'arrampicata in un ambiente accogliente e inclusivo. 
           Per tutti i livelli, dalla prima volta agli esperti scalatori.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-6">
-            Inizia a Scalare
-          </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20">
-            Scopri di Più
-          </Button>
-        </div>
       </div>
       
       {/* Scroll indicator */}
