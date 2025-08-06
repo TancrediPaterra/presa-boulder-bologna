@@ -29,19 +29,19 @@ const Schedule = () => {
   const weeklyActivities = [
     {
       day: "Lunedì",
-      activities: ["Corso Base", "Libera scalata"]
+      activities: ["Libera scalata", "Allenamento"]
     },
     {
       day: "Martedì", 
-      activities: ["Corso Intermedio", "Libera scalata"]
+      activities: ["Libera scalata", "Sessioni guidate"]
     },
     {
       day: "Mercoledì",
-      activities: ["Corso Bambini", "Libera scalata"]
+      activities: ["Libera scalata", "Attività bambini"]
     },
     {
       day: "Giovedì",
-      activities: ["Corso Avanzato", "Libera scalata"]
+      activities: ["Libera scalata", "Allenamento avanzato"]
     },
     {
       day: "Venerdì",
@@ -49,7 +49,7 @@ const Schedule = () => {
     },
     {
       day: "Sabato",
-      activities: ["Corso Weekend", "Libera scalata", "Gare interne"]
+      activities: ["Libera scalata", "Gare interne", "Attività di gruppo"]
     },
     {
       day: "Domenica",
@@ -128,21 +128,21 @@ const Schedule = () => {
             <CardHeader>
               <CardTitle className="text-2xl text-primary flex items-center">
                 <Users2 className="w-6 h-6 mr-3" />
-                Corsi Disponibili
+                Attività Disponibili
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="border-l-4 border-accent pl-4">
-                <h4 className="font-semibold text-lg text-foreground">Corso Base</h4>
-                <p className="text-muted-foreground">Perfetto per chi inizia. Impara le tecniche fondamentali e la sicurezza.</p>
+                <h4 className="font-semibold text-lg text-foreground">Libera Scalata</h4>
+                <p className="text-muted-foreground">Arrampica in totale libertà sui nostri percorsi di diversa difficoltà.</p>
               </div>
               <div className="border-l-4 border-energy pl-4">
-                <h4 className="font-semibold text-lg text-foreground">Corso Intermedio</h4>
-                <p className="text-muted-foreground">Migliora la tecnica e affronta vie più impegnative.</p>
+                <h4 className="font-semibold text-lg text-foreground">Sessioni Guidate</h4>
+                <p className="text-muted-foreground">Sessioni con accompagnatori esperti per migliorare la tecnica.</p>
               </div>
               <div className="border-l-4 border-primary pl-4">
-                <h4 className="font-semibold text-lg text-foreground">Corso Avanzato</h4>
-                <p className="text-muted-foreground">Per scalatori esperti che vogliono perfezionare le proprie abilità.</p>
+                <h4 className="font-semibold text-lg text-foreground">Eventi Sociali</h4>
+                <p className="text-muted-foreground">Serate di arrampicata e competizioni interne per tutti i livelli.</p>
               </div>
             </CardContent>
           </Card>
@@ -156,8 +156,8 @@ const Schedule = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h4 className="font-semibold text-lg text-foreground mb-2">Prenotazioni</h4>
-                <p className="text-muted-foreground">I corsi richiedono prenotazione. La libera scalata non necessita di prenotazione.</p>
+                <h4 className="font-semibold text-lg text-foreground mb-2">Accesso</h4>
+                <p className="text-muted-foreground">Accesso libero durante gli orari di apertura. Le sessioni guidate su prenotazione.</p>
               </div>
               <div>
                 <h4 className="font-semibold text-lg text-foreground mb-2">Attrezzatura</h4>
