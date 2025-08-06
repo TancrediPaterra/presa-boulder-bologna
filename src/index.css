@@ -9,13 +9,13 @@
 :root {
   /* Colors - using HSL values from the previous design system */
   --background: hsl(40, 8%, 98%);
-  --foreground: hsl(20, 14%, 12%);
+  --foreground: hsl(20, 14%, 5%);
 
   --primary: hsl(20, 80%, 45%);
   --primary-foreground: hsl(40, 8%, 98%);
 
   --secondary: hsl(30, 15%, 85%);
-  --secondary-foreground: hsl(20, 14%, 12%);
+  --secondary-foreground: hsl(20, 14%, 5%);
 
   --accent: hsl(15, 70%, 55%);
   --accent-foreground: hsl(40, 8%, 98%);
@@ -74,35 +74,6 @@
 
   /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: hsl(20, 14%, 8%);
-    --foreground: hsl(40, 8%, 95%);
-
-    --primary: hsl(20, 80%, 55%);
-    --primary-foreground: hsl(20, 14%, 8%);
-
-    --secondary: hsl(25, 8%, 20%);
-    --secondary-foreground: hsl(40, 8%, 95%);
-
-    --accent: hsl(15, 70%, 60%);
-    --accent-foreground: hsl(20, 14%, 8%);
-
-    --muted: hsl(25, 8%, 20%);
-    --muted-foreground: hsl(30, 8%, 60%);
-
-    --border: hsl(25, 8%, 20%);
-    --input: hsl(25, 8%, 20%);
-
-    /* Dark theme custom colors */
-    --rock: hsl(25, 15%, 60%);
-    --rock-light: hsl(25, 15%, 25%);
-    --energy: hsl(15, 85%, 70%);
-    --nature: hsl(120, 35%, 55%);
-  }
 }
 
 /* Base styles */
