@@ -1,3 +1,107 @@
+import styled from 'styled-components';
+
+const Section = styled.section`
+  padding: 5rem 0;
+  background-color: var(--background);
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
+const HeaderDiv = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const Title = styled.h2`
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+const PrimarySpan = styled.span`
+  color: var(--primary);
+`;
+
+const HeaderDescription = styled.p`
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto;
+`;
+
+const FeaturesGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const FeatureCard = styled.div`
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-climbing);
+  }
+`;
+
+const FeatureIcon = styled.div`
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+`;
+
+const FeatureTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+`;
+
+const FeatureDescription = styled.p`
+  color: var(--muted-foreground);
+`;
+
+const CallToActionDiv = styled.div`
+  border-radius: 0.5rem;
+  padding: 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--rock-light), var(--rock));
+  color: white;
+`;
+
+const CTATitle = styled.h3`
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+const CTADescription = styled.p`
+  font-size: 1.25rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+`;
+
 const About = () => {
   const features = [
     {
@@ -21,90 +125,39 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20" style={{ backgroundColor: "var(--background)" }}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ color: "var(--foreground)" }}
-          >
-            Benvenuti in <span className="text-primary">PresaB</span>
-          </h2>
-          <p
-            style={{
-              fontSize: "1.25rem",
-              maxWidth: "48rem",
-              margin: "0 auto",
-              color: "var(--muted-foreground)",
-            }}
-          >
+    <Section>
+      <Container>
+        <HeaderDiv>
+          <Title>
+            Benvenuti in <PrimarySpan>PresaB</PrimarySpan>
+          </Title>
+          <HeaderDescription>
             Nel cuore di Bologna, PresaB è più di una semplice palestra di
             arrampicata. È uno spazio dove la passione per la verticale incontra
             l'inclusività e la crescita personale.
-          </p>
-        </div>
+          </HeaderDescription>
+        </HeaderDiv>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <FeaturesGrid>
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-8 text-center transition hover:shadow-xl"
-              style={{
-                border: `1px solid var(--border)`,
-                transform: "translateY(0)",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-5px)";
-                e.target.style.boxShadow = "var(--shadow-climbing)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)";
-                e.target.style.boxShadow = "var(--shadow-lg)";
-              }}
-            >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3
-                className="text-xl font-semibold mb-3"
-                style={{ color: "var(--foreground)" }}
-              >
-                {feature.title}
-              </h3>
-              <p style={{ color: "var(--muted-foreground)" }}>
-                {feature.description}
-              </p>
-            </div>
+            <FeatureCard key={index}>
+              <FeatureIcon>{feature.icon}</FeatureIcon>
+              <FeatureTitle>{feature.title}</FeatureTitle>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+            </FeatureCard>
           ))}
-        </div>
+        </FeaturesGrid>
 
-        <div
-          style={{
-            borderRadius: "0.5rem",
-            padding: "3rem",
-            textAlign: "center",
-          }}
-          style={{
-            background:
-              "linear-gradient(180deg, var(--rock-light), var(--rock))",
-            color: "white",
-          }}
-        >
-          <h3 className="text-3xl font-bold mb-4">Arrampicata per Tutti</h3>
-          <p
-            style={{
-              fontSize: "1.25rem",
-              maxWidth: "42rem",
-              margin: "0 auto",
-              color: "rgba(255, 255, 255, 0.9)",
-            }}
-          >
+        <CallToActionDiv>
+          <CTATitle>Arrampicata per Tutti</CTATitle>
+          <CTADescription>
             Che tu sia un principiante assoluto o un climber esperto, PresaB
             offre percorsi e sfide adatte al tuo livello. La nostra filosofia
             popolare rende l'arrampicata accessibile a tutti.
-          </p>
-        </div>
-      </div>
-    </section>
+          </CTADescription>
+        </CallToActionDiv>
+      </Container>
+    </Section>
   );
 };
 

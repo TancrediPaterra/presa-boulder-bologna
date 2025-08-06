@@ -66,7 +66,7 @@ Il progetto utilizza CSS Custom Properties per un sistema di design coerente:
   --accent: hsl(15, 70%, 55%);      /* Accento energico */
   --energy: hsl(15, 90%, 65%);      /* Energia e passione */
   --rock: hsl(25, 20%, 40%);        /* Grigio roccia */
-  
+
   /* Tema scuro automatico */
   @media (prefers-color-scheme: dark) { ... }
 }

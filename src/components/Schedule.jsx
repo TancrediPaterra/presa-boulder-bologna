@@ -1,3 +1,150 @@
+import styled from 'styled-components';
+
+const Section = styled.section`
+  padding: 5rem 0;
+  background-color: var(--muted);
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
+const HeaderDiv = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const Title = styled.h2`
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+const HeaderDescription = styled.p`
+  font-size: 1.25rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+`;
+
+const ScheduleGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const ScheduleCard = styled.div`
+  background-color: ${props => props.highlight ? 'rgba(255, 165, 0, 0.05)' : 'white'};
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: ${props => props.highlight ? '2px solid var(--energy)' : '1px solid var(--border)'};
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-climbing);
+  }
+`;
+
+const ScheduleTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: ${props => props.highlight ? 'var(--energy)' : 'var(--primary)'};
+`;
+
+const ScheduleHours = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+`;
+
+const ScheduleBoulderClose = styled.div`
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  color: var(--muted-foreground);
+`;
+
+const ScheduleDescription = styled.div`
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+`;
+
+const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const InfoCard = styled.div`
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  border: 1px solid ${props => props.borderColor || 'var(--border)'};
+`;
+
+const InfoTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: ${props => props.color || 'var(--foreground)'};
+`;
+
+const InfoContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const InfoItem = styled.div`
+  border-left: 4px solid ${props => props.borderColor};
+  padding-left: 1rem;
+`;
+
+const InfoItemTitle = styled.h4`
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+`;
+
+const InfoItemDescription = styled.p`
+  color: var(--muted-foreground);
+`;
+
 const Schedule = () => {
   const scheduleInfo = [
     {
@@ -24,218 +171,105 @@ const Schedule = () => {
   ];
 
   return (
-    <section style={{ padding: "5rem 0", backgroundColor: "var(--muted)" }}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ color: "var(--foreground)" }}
-          >
-            📅 Orari di Apertura
-          </h2>
-          <p
-            style={{ fontSize: "1.25rem", maxWidth: "42rem", margin: "0 auto" }}
-            style={{ color: "var(--muted-foreground)" }}
-          >
+    <Section>
+      <Container>
+        <HeaderDiv>
+          <Title>📅 Orari di Apertura</Title>
+          <HeaderDescription>
             Siamo aperti ogni giorno per offrirti la migliore esperienza di
             arrampicata. Controlla i nostri orari e le attività programmate.
-          </p>
-        </div>
+          </HeaderDescription>
+        </HeaderDiv>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+        <ScheduleGrid>
           {scheduleInfo.map((schedule, index) => (
-            <div
-              key={index}
-              style={{
-                backgroundColor: "white",
-                borderRadius: "0.5rem",
-                boxShadow: "var(--shadow-lg)",
-                padding: "1.5rem",
-                textAlign: "center",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-              }}
-              style={{
-                border: schedule.highlight
-                  ? `2px solid var(--energy)`
-                  : `1px solid var(--border)`,
-                backgroundColor: schedule.highlight
-                  ? "rgba(255, 165, 0, 0.05)"
-                  : "white",
-              }}
-            >
-              <h3
-                className="text-xl font-bold mb-4 flex items-center justify-center gap-2"
-                style={{
-                  color: schedule.highlight
-                    ? "var(--energy)"
-                    : "var(--primary)",
-                }}
-              >
+            <ScheduleCard key={index} highlight={schedule.highlight}>
+              <ScheduleTitle highlight={schedule.highlight}>
                 {schedule.highlight && "⭐"}
                 {schedule.period}
                 {schedule.highlight && "⭐"}
-              </h3>
-              <div
-                className="flex items-center justify-center mb-3 text-lg font-semibold"
-                style={{ color: "var(--foreground)" }}
-              >
+              </ScheduleTitle>
+              <ScheduleHours>
                 🕒 {schedule.hours}
-              </div>
+              </ScheduleHours>
               {schedule.boulderClose && (
-                <div
-                  className="text-sm mb-3"
-                  style={{ color: "var(--muted-foreground)" }}
-                >
+                <ScheduleBoulderClose>
                   Sala Boulder chiude alle {schedule.boulderClose}
-                </div>
+                </ScheduleBoulderClose>
               )}
-              <div
-                className="text-sm"
-                style={{ color: "var(--muted-foreground)" }}
-              >
+              <ScheduleDescription>
                 {schedule.description}
-              </div>
-            </div>
+              </ScheduleDescription>
+            </ScheduleCard>
           ))}
-        </div>
+        </ScheduleGrid>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div
-            className="bg-white rounded-lg shadow-lg p-6"
-            style={{ border: `1px solid var(--primary)` }}
-          >
-            <h3
-              className="text-2xl font-bold flex items-center mb-6"
-              style={{ color: "var(--primary)" }}
-            >
+        <InfoGrid>
+          <InfoCard borderColor="var(--primary)">
+            <InfoTitle color="var(--primary)">
               👥 Attività Disponibili
-            </h3>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <div
-                style={{
-                  borderLeft: `4px solid var(--accent)`,
-                  paddingLeft: "1rem",
-                }}
-              >
-                <h4
-                  className="font-semibold text-lg"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Libera Scalata
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+            </InfoTitle>
+            <InfoContent>
+              <InfoItem borderColor="var(--accent)">
+                <InfoItemTitle>Libera Scalata</InfoItemTitle>
+                <InfoItemDescription>
                   Arrampica in totale libertà sui nostri percorsi di diversa
                   difficoltà.
-                </p>
-              </div>
-              <div
-                style={{
-                  borderLeft: `4px solid var(--energy)`,
-                  paddingLeft: "1rem",
-                }}
-              >
-                <h4
-                  className="font-semibold text-lg"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Corsi di Arrampicata
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                </InfoItemDescription>
+              </InfoItem>
+              <InfoItem borderColor="var(--energy)">
+                <InfoItemTitle>Corsi di Arrampicata</InfoItemTitle>
+                <InfoItemDescription>
                   Corsi per tutti i livelli: base, intermedio e avanzato con
                   istruttori qualificati.
-                </p>
-              </div>
-              <div
-                style={{
-                  borderLeft: `4px solid var(--primary)`,
-                  paddingLeft: "1rem",
-                }}
-              >
-                <h4
-                  className="font-semibold text-lg"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Eventi Sociali
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                </InfoItemDescription>
+              </InfoItem>
+              <InfoItem borderColor="var(--primary)">
+                <InfoItemTitle>Eventi Sociali</InfoItemTitle>
+                <InfoItemDescription>
                   Serate di arrampicata e competizioni interne per tutti i
                   livelli.
-                </p>
-              </div>
-              <div
-                style={{
-                  borderLeft: `4px solid var(--secondary)`,
-                  paddingLeft: "1rem",
-                }}
-              >
-                <h4
-                  className="font-semibold text-lg"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Sessioni Guidate
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                </InfoItemDescription>
+              </InfoItem>
+              <InfoItem borderColor="var(--secondary)">
+                <InfoItemTitle>Sessioni Guidate</InfoItemTitle>
+                <InfoItemDescription>
                   Sessioni con accompagnatori esperti per migliorare la tecnica.
-                </p>
-              </div>
-            </div>
-          </div>
+                </InfoItemDescription>
+              </InfoItem>
+            </InfoContent>
+          </InfoCard>
 
-          <div
-            className="bg-white rounded-lg shadow-lg p-6"
-            style={{ border: `1px solid var(--accent)` }}
-          >
-            <h3
-              className="text-2xl font-bold flex items-center mb-6"
-              style={{ color: "var(--accent)" }}
-            >
+          <InfoCard borderColor="var(--accent)">
+            <InfoTitle color="var(--accent)">
               🕒 Informazioni Utili
-            </h3>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
+            </InfoTitle>
+            <InfoContent>
               <div>
-                <h4
-                  className="font-semibold text-lg mb-2"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Accesso
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                <InfoItemTitle>Accesso</InfoItemTitle>
+                <InfoItemDescription>
                   Accesso libero durante gli orari di apertura. Le sessioni
                   guidate su prenotazione.
-                </p>
+                </InfoItemDescription>
               </div>
               <div>
-                <h4
-                  className="font-semibold text-lg mb-2"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Attrezzatura
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                <InfoItemTitle>Attrezzatura</InfoItemTitle>
+                <InfoItemDescription>
                   Scarpette e imbrago disponibili a noleggio. Porta solo
                   abbigliamento comodo!
-                </p>
+                </InfoItemDescription>
               </div>
               <div>
-                <h4
-                  className="font-semibold text-lg mb-2"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Primo Accesso
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
+                <InfoItemTitle>Primo Accesso</InfoItemTitle>
+                <InfoItemDescription>
                   Prima volta? Ti offriamo una prova gratuita con istruttore!
-                </p>
+                </InfoItemDescription>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </InfoContent>
+          </InfoCard>
+        </InfoGrid>
+      </Container>
+    </Section>
   );
 };
 

@@ -1,223 +1,313 @@
+import styled from 'styled-components';
+
+const Section = styled.section`
+  padding: 5rem 0;
+  background-color: var(--background);
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
+const HeaderDiv = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const Title = styled.h2`
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+const HeaderDescription = styled.p`
+  font-size: 1.25rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+`;
+
+const ContentGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const Card = styled.div`
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+`;
+
+const CardHeader = styled.div`
+  margin-bottom: 1.5rem;
+`;
+
+const CardTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: ${props => props.color || 'var(--foreground)'};
+`;
+
+const ContactContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const ContactSection = styled.div``;
+
+const ContactSectionTitle = styled.h4`
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+`;
+
+const ContactText = styled.p`
+  color: var(--muted-foreground);
+`;
+
+const ContactList = styled.ul`
+  color: var(--muted-foreground);
+  list-style: none;
+  padding: 0;
+`;
+
+const ContactListItem = styled.li`
+  margin-bottom: 0.25rem;
+`;
+
+const MapContainer = styled.div`
+  padding-top: 1rem;
+`;
+
+const MapIframe = styled.iframe`
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+`;
+
+const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+const ContactInfoCard = styled(Card)``;
+
+const ContactInfoContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const ContactInfoItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+`;
+
+const ContactIcon = styled.span`
+  font-size: 1.25rem;
+  color: var(--primary);
+`;
+
+const ContactDetails = styled.div``;
+
+const ContactLabel = styled.p`
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+`;
+
+const ContactValue = styled.p`
+  color: var(--muted-foreground);
+  margin: 0;
+`;
+
+const SocialSection = styled.div`
+  padding-top: 1rem;
+`;
+
+const SocialLabel = styled.p`
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+`;
+
+const SocialButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const SocialButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--foreground);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: var(--muted);
+  }
+`;
+
+const CTACard = styled.div`
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border: none;
+`;
+
+const CTATitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+`;
+
+const CTADescription = styled.p`
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+`;
+
+const CTAButton = styled.button`
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.125rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+
 const Contact = () => {
   return (
-    <section className="py-20" style={{ backgroundColor: "var(--background)" }}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ color: "var(--foreground)" }}
-          >
-            Vieni a Trovarci
-          </h2>
-          <p
-            className="text-xl max-w-2xl mx-auto"
-            style={{ color: "var(--muted-foreground)" }}
-          >
+    <Section>
+      <Container>
+        <HeaderDiv>
+          <Title>Vieni a Trovarci</Title>
+          <HeaderDescription>
             Siamo nel cuore di Bologna, pronti ad accoglierti nella nostra
             comunità di arrampicata.
-          </p>
-        </div>
+          </HeaderDescription>
+        </HeaderDiv>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div
-            className="bg-white rounded-lg shadow-lg p-6"
-            style={{ border: `1px solid var(--border)` }}
-          >
-            <div className="mb-6">
-              <h3
-                className="text-2xl font-bold flex items-center mb-4"
-                style={{ color: "var(--primary)" }}
-              >
+        <ContentGrid>
+          <Card>
+            <CardHeader>
+              <CardTitle color="var(--primary)">
                 📍 Dove Siamo
-              </h3>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <h4
-                  className="font-semibold text-lg mb-2"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Indirizzo
-                </h4>
-                <p style={{ color: "var(--muted-foreground)" }}>
-                  Via dell'Arrampicata, 42
-                  <br />
-                  40100 Bologna, BO
-                  <br />
+              </CardTitle>
+            </CardHeader>
+            <ContactContent>
+              <ContactSection>
+                <ContactSectionTitle>Indirizzo</ContactSectionTitle>
+                <ContactText>
+                  Via dell'Arrampicata, 42<br />
+                  40100 Bologna, BO<br />
                   Italia
-                </p>
-              </div>
+                </ContactText>
+              </ContactSection>
 
-              <div>
-                <h4
-                  className="font-semibold text-lg mb-2"
-                  style={{ color: "var(--foreground)" }}
-                >
-                  Come Raggiungerci
-                </h4>
-                <ul style={{ color: "var(--muted-foreground)" }}>
-                  <li style={{ marginBottom: "0.25rem" }}>
+              <ContactSection>
+                <ContactSectionTitle>Come Raggiungerci</ContactSectionTitle>
+                <ContactList>
+                  <ContactListItem>
                     • Fermata metro: Stazione Centrale (15 min a piedi)
-                  </li>
-                  <li style={{ marginBottom: "0.25rem" }}>
+                  </ContactListItem>
+                  <ContactListItem>
                     • Autobus: Linee 25, 30, 35
-                  </li>
-                  <li style={{ marginBottom: "0.25rem" }}>
+                  </ContactListItem>
+                  <ContactListItem>
                     • Parcheggio gratuito disponibile
-                  </li>
-                </ul>
-              </div>
+                  </ContactListItem>
+                </ContactList>
+              </ContactSection>
 
-              <div className="pt-4">
-                <iframe
+              <MapContainer>
+                <MapIframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.845!2d11.3426!3d44.4949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDI5JzQxLjYiTiAxMcKwMjAnMzMuNCJF!5e0!3m2!1sen!2sit!4v1"
                   width="100%"
                   height="200"
-                  style={{
-                    border: 0,
-                    borderRadius: "0.5rem",
-                    boxShadow: "var(--shadow-sm)",
-                  }}
                   allowFullScreen
                   loading="lazy"
                 />
-              </div>
-            </div>
-          </div>
+              </MapContainer>
+            </ContactContent>
+          </Card>
 
-          <div className="space-y-8">
-            <div
-              className="bg-white rounded-lg shadow-lg p-6"
-              style={{ border: `1px solid var(--border)` }}
-            >
-              <div className="mb-6">
-                <h3
-                  className="text-2xl font-bold flex items-center mb-4"
-                  style={{ color: "var(--accent)" }}
-                >
+          <RightColumn>
+            <ContactInfoCard>
+              <CardHeader>
+                <CardTitle color="var(--accent)">
                   📞 Contatti
-                </h3>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl" style={{ color: "var(--primary)" }}>
-                    📞
-                  </span>
-                  <div>
-                    <p
-                      className="font-semibold"
-                      style={{ color: "var(--foreground)" }}
-                    >
-                      Telefono
-                    </p>
-                    <p style={{ color: "var(--muted-foreground)" }}>
-                      +39 051 123 4567
-                    </p>
-                  </div>
-                </div>
+                </CardTitle>
+              </CardHeader>
+              <ContactInfoContent>
+                <ContactInfoItem>
+                  <ContactIcon>📞</ContactIcon>
+                  <ContactDetails>
+                    <ContactLabel>Telefono</ContactLabel>
+                    <ContactValue>+39 051 123 4567</ContactValue>
+                  </ContactDetails>
+                </ContactInfoItem>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-xl" style={{ color: "var(--primary)" }}>
-                    ✉️
-                  </span>
-                  <div>
-                    <p
-                      className="font-semibold"
-                      style={{ color: "var(--foreground)" }}
-                    >
-                      Email
-                    </p>
-                    <p style={{ color: "var(--muted-foreground)" }}>
-                      info@presab.it
-                    </p>
-                  </div>
-                </div>
+                <ContactInfoItem>
+                  <ContactIcon>✉️</ContactIcon>
+                  <ContactDetails>
+                    <ContactLabel>Email</ContactLabel>
+                    <ContactValue>info@presab.it</ContactValue>
+                  </ContactDetails>
+                </ContactInfoItem>
 
-                <div className="pt-4">
-                  <p
-                    className="font-semibold mb-2"
-                    style={{ color: "var(--foreground)" }}
-                  >
-                    Seguici sui Social
-                  </p>
-                  <div className="flex gap-4">
-                    <button
-                      style={{
-                        padding: "0.5rem 1rem",
-                        borderRadius: "0.375rem",
-                        border: `1px solid var(--border)`,
-                        backgroundColor: "transparent",
-                        color: "var(--foreground)",
-                        transition: "background-color 0.3s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "var(--muted)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.backgroundColor = "transparent";
-                      }}
-                    >
-                      📸 Instagram
-                    </button>
-                    <button
-                      style={{
-                        padding: "0.5rem 1rem",
-                        borderRadius: "0.375rem",
-                        border: `1px solid var(--border)`,
-                        backgroundColor: "transparent",
-                        color: "var(--foreground)",
-                        transition: "background-color 0.3s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.backgroundColor = "var(--muted)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.backgroundColor = "transparent";
-                      }}
-                    >
-                      👥 Facebook
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <SocialSection>
+                  <SocialLabel>Seguici sui Social</SocialLabel>
+                  <SocialButtons>
+                    <SocialButton>📸 Instagram</SocialButton>
+                    <SocialButton>👥 Facebook</SocialButton>
+                  </SocialButtons>
+                </SocialSection>
+              </ContactInfoContent>
+            </ContactInfoCard>
 
-            <div
-              className="rounded-lg p-8 text-center text-white"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--primary), var(--accent))",
-                border: "none",
-              }}
-            >
-              <h3 className="text-2xl font-bold mb-4">
-                Pronto per la Prima Scalata?
-              </h3>
-              <p className="mb-6" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
+            <CTACard>
+              <CTATitle>Pronto per la Prima Scalata?</CTATitle>
+              <CTADescription>
                 Prenota la tua prova gratuita e scopri il mondo dell'arrampicata
                 con noi!
-              </p>
-              <button
-                className="px-6 py-3 rounded-lg border transition text-white"
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  border: "1px solid rgba(255, 255, 255, 0.3)",
-                  fontSize: "1.125rem",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-                }}
-              >
-                Prenota Ora
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              </CTADescription>
+              <CTAButton>Prenota Ora</CTAButton>
+            </CTACard>
+          </RightColumn>
+        </ContentGrid>
+      </Container>
+    </Section>
   );
 };
 

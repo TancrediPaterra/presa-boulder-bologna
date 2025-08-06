@@ -1,178 +1,198 @@
+import styled from 'styled-components';
+
+const FooterContainer = styled.footer`
+  background-color: var(--rock);
+  color: white;
+  padding: 3rem 0;
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+`;
+
+const FooterGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const BrandSection = styled.div``;
+
+const BrandHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+const BrandIcon = styled.span`
+  font-size: 2rem;
+  color: var(--energy);
+`;
+
+const BrandTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+const EnergySpan = styled.span`
+  color: var(--energy);
+`;
+
+const BrandDescription = styled.p`
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+`;
+
+const Copyright = styled.p`
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+`;
+
+const LinksSection = styled.div``;
+
+const LinksTitle = styled.h4`
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+`;
+
+const LinksList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  list-style: none;
+  padding: 0;
+`;
+
+const LinkItem = styled.li``;
+
+const Link = styled.a`
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--energy);
+  }
+`;
+
+const ContactSection = styled.div``;
+
+const ContactTitle = styled.h4`
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+`;
+
+const ContactList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+`;
+
+const ContactIcon = styled.span`
+  color: var(--energy);
+`;
+
+const ContactText = styled.span`
+  font-size: 0.875rem;
+`;
+
+const Separator = styled.div`
+  margin-top: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+const BottomText = styled.p`
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+`;
+
 const Footer = () => {
   return (
-    <footer
-      style={{
-        backgroundColor: "var(--rock)",
-        color: "white",
-        padding: "3rem 0",
-      }}
-    >
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span style={{ fontSize: "2rem", color: "var(--energy)" }}>
-                ⛰️
-              </span>
-              <h3 className="text-2xl font-bold">
-                Presa<span style={{ color: "var(--energy)" }}>B</span>
-              </h3>
-            </div>
-            <p className="mb-4" style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+    <FooterContainer>
+      <Container>
+        <FooterGrid>
+          <BrandSection>
+            <BrandHeader>
+              <BrandIcon>⛰️</BrandIcon>
+              <BrandTitle>
+                Presa<EnergySpan>B</EnergySpan>
+              </BrandTitle>
+            </BrandHeader>
+            <BrandDescription>
               La palestra di arrampicata popolare di Bologna. Un luogo dove
               passione, inclusività e crescita si incontrano.
-            </p>
-            <p
-              className="text-sm"
-              style={{ color: "rgba(255, 255, 255, 0.6)" }}
-            >
+            </BrandDescription>
+            <Copyright>
               © 2024 PresaB. Tutti i diritti riservati.
-            </p>
-          </div>
+            </Copyright>
+          </BrandSection>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Collegamenti Rapidi</h4>
-            <ul
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.5rem",
-                color: "rgba(255, 255, 255, 0.8)",
-              }}
-            >
-              <li>
-                <a
-                  href="#"
-                  style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--energy)")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255, 255, 255, 0.8)")
-                  }
-                >
-                  Chi Siamo
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--energy)")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255, 255, 255, 0.8)")
-                  }
-                >
-                  Orari
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--energy)")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255, 255, 255, 0.8)")
-                  }
-                >
-                  Corsi
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--energy)")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255, 255, 255, 0.8)")
-                  }
-                >
-                  Eventi
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  style={{
-                    color: "inherit",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "var(--energy)")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255, 255, 255, 0.8)")
-                  }
-                >
-                  Contatti
-                </a>
-              </li>
-            </ul>
-          </div>
+          <LinksSection>
+            <LinksTitle>Collegamenti Rapidi</LinksTitle>
+            <LinksList>
+              <LinkItem>
+                <Link href="#">Chi Siamo</Link>
+              </LinkItem>
+              <LinkItem>
+                <Link href="#">Orari</Link>
+              </LinkItem>
+              <LinkItem>
+                <Link href="#">Corsi</Link>
+              </LinkItem>
+              <LinkItem>
+                <Link href="#">Eventi</Link>
+              </LinkItem>
+              <LinkItem>
+                <Link href="#">Contatti</Link>
+              </LinkItem>
+            </LinksList>
+          </LinksSection>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contatti</h4>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-            >
-              <div
-                className="flex items-center gap-2"
-                style={{ color: "rgba(255, 255, 255, 0.8)" }}
-              >
-                <span style={{ color: "var(--energy)" }}>📍</span>
-                <span className="text-sm">
-                  Via dell'Arrampicata, 42 - Bologna
-                </span>
-              </div>
-              <div
-                className="flex items-center gap-2"
-                style={{ color: "rgba(255, 255, 255, 0.8)" }}
-              >
-                <span style={{ color: "var(--energy)" }}>📞</span>
-                <span className="text-sm">+39 051 123 4567</span>
-              </div>
-              <div
-                className="flex items-center gap-2"
-                style={{ color: "rgba(255, 255, 255, 0.8)" }}
-              >
-                <span style={{ color: "var(--energy)" }}>✉️</span>
-                <span className="text-sm">info@presab.it</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          <ContactSection>
+            <ContactTitle>Contatti</ContactTitle>
+            <ContactList>
+              <ContactItem>
+                <ContactIcon>📍</ContactIcon>
+                <ContactText>Via dell'Arrampicata, 42 - Bologna</ContactText>
+              </ContactItem>
+              <ContactItem>
+                <ContactIcon>📞</ContactIcon>
+                <ContactText>+39 051 123 4567</ContactText>
+              </ContactItem>
+              <ContactItem>
+                <ContactIcon>✉️</ContactIcon>
+                <ContactText>info@presab.it</ContactText>
+              </ContactItem>
+            </ContactList>
+          </ContactSection>
+        </FooterGrid>
 
-        <div
-          style={{
-            marginTop: "2rem",
-            paddingTop: "2rem",
-            textAlign: "center",
-            borderTop: "1px solid rgba(255, 255, 255, 0.2)",
-          }}
-        >
-          <p className="text-sm" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+        <Separator>
+          <BottomText>
             Realizzato con ❤️ per la comunità di arrampicata bolognese
-          </p>
-        </div>
-      </div>
-    </footer>
+          </BottomText>
+        </Separator>
+      </Container>
+    </FooterContainer>
   );
 };
 
