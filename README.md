@@ -1,73 +1,213 @@
-# Welcome to your Lovable project
+# PresaB - Palestra di Arrampicata Popolare di Bologna
 
-## Project info
+🧗‍♀️ Sito web per la palestra di arrampicata popolare di Bologna - Un ambiente inclusivo e accogliente per tutti i livelli di arrampicata.
 
-**URL**: https://lovable.dev/projects/b5b460ea-503a-47d0-8558-ff7f23838f6f
+![React](https://img.shields.io/badge/React-18.3.1-blue?logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?logo=javascript)
+![Vite](https://img.shields.io/badge/Vite-5.4.19-purple?logo=vite)
+![CSS3](https://img.shields.io/badge/CSS3-Vanilla-blue?logo=css3)
 
-## How can I edit this code?
+## 🚀 Demo
 
-There are several ways of editing your application.
+**Live Demo**: Il sito è accessibile in locale su `http://localhost:8080`
 
-**Use Lovable**
+## 📋 Caratteristiche
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b5b460ea-503a-47d0-8558-ff7f23838f6f) and start prompting.
+- ✅ **Vanilla JavaScript** - Nessun TypeScript, codice pulito e semplice
+- ✅ **CSS Puro** - Nessun framework CSS, solo vanilla CSS con custom properties
+- ✅ **React Router** - Navigazione client-side
+- ✅ **Design Responsive** - Ottimizzato per desktop e mobile
+- ✅ **Tema Climbing** - Design ispirato al mondo dell'arrampicata
+- ✅ **Performance** - Bundle leggero e veloce
+- ✅ **Accessibilità** - Semantic HTML e buone pratiche
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tecnologie Utilizzate
 
-**Use your preferred IDE**
+- **[React](https://reactjs.org/)** (18.3.1) - Library per l'interfaccia utente
+- **[Vite](https://vitejs.dev/)** (5.4.19) - Build tool e dev server
+- **[React Router](https://reactrouter.com/)** (6.30.1) - Routing client-side
+- **CSS Custom Properties** - Per il theming e la coerenza del design
+- **JavaScript ES6+** - Sintassi moderna senza TypeScript
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📁 Struttura del Progetto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```
+presa-boulder-bologna/
+├── public/                 # File statici
+│   ├── favicon.ico
+│   └── hero-climbing.jpg
+├── src/
+│   ├── components/         # Componenti React
+│   │   ├── About.jsx       # Sezione chi siamo
+│   │   ├── Contact.jsx     # Informazioni di contatto
+│   │   ├── Footer.jsx      # Footer del sito
+│   │   ├── Hero.jsx        # Sezione hero principale
+│   │   └── Schedule.jsx    # Orari e attività
+│   ├── pages/              # Pagine dell'applicazione
+│   │   ├── Index.jsx       # Homepage
+│   │   └── NotFound.jsx    # Pagina 404
+│   ├── assets/             # Risorse statiche
+│   ├── App.jsx             # Componente principale
+│   ├── main.jsx            # Entry point
+│   └── index.css           # Stili globali e tema
+├── package.json            # Dipendenze del progetto
+├── vite.config.js          # Configurazione Vite
+└── README.md
+```
 
-Follow these steps:
+## 🎨 Sistema di Design
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Il progetto utilizza CSS Custom Properties per un sistema di design coerente:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```css
+:root {
+  /* Colori principali */
+  --primary: hsl(20, 80%, 45%);     /* Arancione climbing */
+  --accent: hsl(15, 70%, 55%);      /* Accento energico */
+  --energy: hsl(15, 90%, 65%);      /* Energia e passione */
+  --rock: hsl(25, 20%, 40%);        /* Grigio roccia */
+  
+  /* Tema scuro automatico */
+  @media (prefers-color-scheme: dark) { ... }
+}
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🚀 Installazione e Sviluppo
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Prerequisiti
+
+- **Node.js** (versione 16 o superiore)
+- **npm** o **yarn**
+
+### Setup Locale
+
+```bash
+# 1. Clona il repository
+git clone https://github.com/TancrediPaterra/presa-boulder-bologna.git
+
+# 2. Entra nella directory del progetto
+cd presa-boulder-bologna
+
+# 3. Installa le dipendenze
+npm install
+
+# 4. Avvia il server di sviluppo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Il sito sarà disponibile su `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Comandi Disponibili
 
-**Use GitHub Codespaces**
+```bash
+# Sviluppo
+npm run dev          # Avvia il server di sviluppo
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build
+npm run build        # Crea la build di produzione
+npm run build:dev    # Crea una build di sviluppo
 
-## What technologies are used for this project?
+# Linting
+npm run lint         # Controlla il codice con ESLint
 
-This project is built with:
+# Preview
+npm run preview      # Preview della build di produzione
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎯 Sezioni del Sito
 
-## How can I deploy this project?
+### 🏠 Homepage
+- **Hero Section** - Immagine di sfondo con call-to-action
+- **About** - Informazioni sulla palestra e la filosofia
+- **Schedule** - Orari di apertura e attività disponibili
+- **Contact** - Informazioni di contatto e mappa
 
-Simply open [Lovable](https://lovable.dev/projects/b5b460ea-503a-47d0-8558-ff7f23838f6f) and click on Share -> Publish.
+### 📱 Responsive Design
+- Design mobile-first
+- Breakpoints ottimizzati per tutti i dispositivi
+- Immagini responsive e contenuti adattivi
 
-## Can I connect a custom domain to my Lovable project?
+## 🎨 Personalizzazione
 
-Yes, you can!
+### Colori e Tema
+Modifica le CSS custom properties in `src/index.css`:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```css
+:root {
+  --primary: hsl(20, 80%, 45%);     /* Colore principale */
+  --accent: hsl(15, 70%, 55%);      /* Colore accento */
+  --energy: hsl(15, 90%, 65%);      /* Colore energia */
+  /* ... altri colori */
+}
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Contenuti
+I contenuti sono facilmente modificabili nei rispettivi componenti:
+- `Hero.jsx` - Testo principale e call-to-action
+- `About.jsx` - Informazioni sulla palestra
+- `Schedule.jsx` - Orari e attività
+- `Contact.jsx` - Informazioni di contatto
+
+## 📦 Dipendenze
+
+### Produzione
+```json
+{
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "react-router-dom": "^6.30.1"
+}
+```
+
+### Sviluppo
+```json
+{
+  "@vitejs/plugin-react": "^4.3.1",
+  "vite": "^5.4.19",
+  "eslint": "^9.32.0"
+}
+```
+
+## 🚀 Deploy
+
+### Build di Produzione
+```bash
+npm run build
+```
+
+I file di produzione saranno generati nella cartella `dist/`.
+
+### Deploy su Servizi Cloud
+Il progetto può essere facilmente deployato su:
+- **Vercel** - Supporto nativo per Vite
+- **Netlify** - Deploy automatico da Git
+- **GitHub Pages** - Deploy gratuito
+- **Firebase Hosting** - Hosting scalabile
+
+## 🤝 Contribuire
+
+1. Fork del progetto
+2. Crea un branch per la tua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit delle modifiche (`git commit -m 'Add some AmazingFeature'`)
+4. Push al branch (`git push origin feature/AmazingFeature`)
+5. Apri una Pull Request
+
+## 📄 Licenza
+
+Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per i dettagli.
+
+## 👨‍💻 Autore
+
+**Tancredi Paterra**
+- GitHub: [@TancrediPaterra](https://github.com/TancrediPaterra)
+- Repository: [presa-boulder-bologna](https://github.com/TancrediPaterra/presa-boulder-bologna)
+
+## 🙏 Riconoscimenti
+
+- Design ispirato dalla comunità di arrampicata bolognese
+- Emoji climbing da Unicode Consortium
+- Grazie alla community React e Vite per gli strumenti eccellenti
+
+---
+
+**Made with ❤️ for the Bologna climbing community**
