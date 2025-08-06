@@ -1,128 +1,602 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Colors - using HSL values from the previous design system */
+  --background: hsl(40, 8%, 98%);
+  --foreground: hsl(20, 14%, 12%);
 
-@layer base {
+  --primary: hsl(20, 80%, 45%);
+  --primary-foreground: hsl(40, 8%, 98%);
+
+  --secondary: hsl(30, 15%, 85%);
+  --secondary-foreground: hsl(20, 14%, 12%);
+
+  --accent: hsl(15, 70%, 55%);
+  --accent-foreground: hsl(40, 8%, 98%);
+
+  --muted: hsl(30, 15%, 85%);
+  --muted-foreground: hsl(25, 8%, 45%);
+
+  --border: hsl(30, 15%, 85%);
+  --input: hsl(30, 15%, 85%);
+
+  /* Custom climbing theme colors */
+  --rock: hsl(25, 20%, 40%);
+  --rock-light: hsl(30, 25%, 75%);
+  --energy: hsl(15, 90%, 65%);
+  --nature: hsl(120, 40%, 45%);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Font sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Borders */
+  --radius: 0.75rem;
+  --radius-sm: 0.375rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-climbing: 0 20px 40px -10px hsl(var(--primary) / 0.3);
+  --shadow-card: 0 4px 20px -2px hsl(var(--rock) / 0.1);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: 40 8% 98%;
-    --foreground: 20 14% 12%;
+    --background: hsl(20, 14%, 8%);
+    --foreground: hsl(40, 8%, 95%);
 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14% 12%;
+    --primary: hsl(20, 80%, 55%);
+    --primary-foreground: hsl(20, 14%, 8%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14% 12%;
+    --secondary: hsl(25, 8%, 20%);
+    --secondary-foreground: hsl(40, 8%, 95%);
 
-    --primary: 20 80% 45%;
-    --primary-foreground: 40 8% 98%;
+    --accent: hsl(15, 70%, 60%);
+    --accent-foreground: hsl(20, 14%, 8%);
 
-    --secondary: 30 15% 85%;
-    --secondary-foreground: 20 14% 12%;
+    --muted: hsl(25, 8%, 20%);
+    --muted-foreground: hsl(30, 8%, 60%);
 
-    --muted: 30 15% 85%;
-    --muted-foreground: 25 8% 45%;
+    --border: hsl(25, 8%, 20%);
+    --input: hsl(25, 8%, 20%);
 
-    --accent: 15 70% 55%;
-    --accent-foreground: 40 8% 98%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 20 80% 45%;
-
-    --radius: 0.75rem;
-
-    /* Custom climbing theme colors */
-    --rock: 25 20% 40%;
-    --rock-light: 30 25% 75%;
-    --energy: 15 90% 65%;
-    --nature: 120 40% 45%;
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-rock: linear-gradient(180deg, hsl(var(--rock-light)), hsl(var(--rock)));
-    
-    /* Shadows */
-    --shadow-climbing: 0 20px 40px -10px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 4px 20px -2px hsl(var(--rock) / 0.1);
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 20 14% 8%;
-    --foreground: 40 8% 95%;
-
-    --card: 20 14% 10%;
-    --card-foreground: 40 8% 95%;
-
-    --popover: 20 14% 10%;
-    --popover-foreground: 40 8% 95%;
-
-    --primary: 20 80% 55%;
-    --primary-foreground: 20 14% 8%;
-
-    --secondary: 25 8% 20%;
-    --secondary-foreground: 40 8% 95%;
-
-    --muted: 25 8% 20%;
-    --muted-foreground: 30 8% 60%;
-
-    --accent: 15 70% 60%;
-    --accent-foreground: 20 14% 8%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 25 8% 20%;
-    --input: 25 8% 20%;
-    --ring: 20 80% 55%;
-    
     /* Dark theme custom colors */
-    --rock: 25 15% 60%;
-    --rock-light: 25 15% 25%;
-    --energy: 15 85% 70%;
-    --nature: 120 35% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --rock: hsl(25, 15%, 60%);
+    --rock-light: hsl(25, 15%, 25%);
+    --energy: hsl(15, 85%, 70%);
+    --nature: hsl(120, 35%, 55%);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+
+.mt-4 {
+  margin-top: var(--space-4);
+}
+
+.mt-6 {
+  margin-top: var(--space-6);
+}
+
+.mt-8 {
+  margin-top: var(--space-8);
+}
+
+.p-4 {
+  padding: var(--space-4);
+}
+
+.p-6 {
+  padding: var(--space-6);
+}
+
+.p-8 {
+  padding: var(--space-8);
+}
+
+.px-4 {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.px-6 {
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+.py-4 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.py-6 {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.py-8 {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+.py-12 {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.py-16 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+.py-20 {
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded {
+  border-radius: var(--radius-sm);
+}
+
+.rounded-lg {
+  border-radius: var(--radius);
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.transition {
+  transition: var(--transition-smooth);
+}
+
+/* Typography */
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-base {
+  font-size: var(--text-base);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+
+.text-4xl {
+  font-size: var(--text-4xl);
+}
+
+.text-5xl {
+  font-size: var(--text-5xl);
+}
+
+.text-6xl {
+  font-size: var(--text-6xl);
+}
+
+.text-7xl {
+  font-size: var(--text-7xl);
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+/* Colors */
+.text-white {
+  color: white;
+}
+
+.text-energy {
+  color: var(--energy);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+/* Responsive utilities */
+@media (min-width: 640px) {
+  .sm\:text-xl {
+    font-size: var(--text-xl);
   }
 
-  body {
-    @apply bg-background text-foreground;
+  .sm\:text-2xl {
+    font-size: var(--text-2xl);
   }
+
+  .sm\:text-5xl {
+    font-size: var(--text-5xl);
+  }
+
+  .sm\:mb-4 {
+    margin-bottom: var(--space-4);
+  }
+
+  .sm\:mb-6 {
+    margin-bottom: var(--space-6);
+  }
+
+  .sm\:mb-8 {
+    margin-bottom: var(--space-8);
+  }
+
+  .sm\:px-6 {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-xl {
+    font-size: var(--text-xl);
+  }
+
+  .md\:text-2xl {
+    font-size: var(--text-2xl);
+  }
+
+  .md\:text-7xl {
+    font-size: var(--text-7xl);
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Custom climbing animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Grid utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Additional specific utilities for the climbing site */
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+}
+
+.bottom-8 {
+  bottom: var(--space-8);
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.mt-2 {
+  margin-top: var(--space-2);
+}
+
+/* Opacity utilities */
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
+
+.text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.text-white\/70 {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.border-white\/30 {
+  border-color: rgb(255 255 255 / 0.3);
+}
+
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
 }
